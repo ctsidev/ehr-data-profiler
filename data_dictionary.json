@@ -1,0 +1,2549 @@
+[
+    {
+        "element": "PATIENT_DEMOGRAPHICS",
+        "description": "This table holds demographic information for the patients in the cohort. There is only one row per patient",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "VITAL_STATUS",
+                "description": "Vital status",
+                "comment_field": "Known Deceased; Not Known Deceased\n\nPlease note: Vital status is not known deceased or deceased status in EHR. Only in-hospital death is recorded, for the most part. Blank values in Care Connect are reported as \"Not Known Deceased.\" Vital status data in CareConnect is not currently linked to the California death registry or any other sources e.g. CDC death data",
+                "nb_func": null
+            },
+            {
+                "field_name": "OCCUPATION",
+                "description": "Patient occupation",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "LANGUAGE",
+                "description": "Patient's primary language",
+                "comment_field": "List of possible values can be provided upon request",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SEX",
+                "description": "Patient sex",
+                "comment_field": "Values in CareConnect include: Male, Female, Other or Unknown",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "MARITAL_STATUS",
+                "description": "Patient marital status",
+                "comment_field": "List of possible values can be provided upon request",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "ETHNICITY",
+                "description": "Patient ethnicity",
+                "comment_field": "List of possible values can be provided upon request",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "LAST_ENCOUNTER_YEAR",
+                "description": "Year of patient's last UCLA encounter",
+                "comment_field": "Format: YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_CURRENT_PCP_ID",
+                "description": "A de-identified, unique ID number for the patient's current primary care provider (PCP) (assigned by IP for coding purposes)",
+                "comment_field": "The\u00a0PCP\u00a0logic takes into account the patient's visit history and the active providers at UCLA to calculate the best match possible in each scenario. Patients without visit history are left blank. Additionally, if a provider leaves UCLA, the patient's\u00a0PCP\u00a0assignment is reset to blank until a new\u00a0PCP\u00a0can be established.  Use to link to provider information in the Provider file e.g. can link up with IP_PROVIDER_ID in Providers file",
+                "nb_func": null
+            },
+            {
+                "field_name": "AGE",
+                "description": "Patient current age (as of data extraction date), or if patient is known deceased, age at death (if known)",
+                "comment_field": null,
+                "nb_func": "numstats"
+            },
+            {
+                "field_name": "RELIGION",
+                "description": "Patient religion",
+                "comment_field": "List of all possible values can be provided upon request",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "RACE",
+                "description": "Patient race",
+                "comment_field": "Patient race records are converted into more general race classifications (e.g. Chinese is represented as Asian). A detailed summary can be provided upon request.",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SEXUAL_ORIENTATION",
+                "description": "Patient sexual orientation",
+                "comment_field": "Update comment",
+                "nb_func": "catbar"
+            }
+        ]
+    },
+    {
+        "element": "PATIENT_IDENTIFIERS",
+        "description": "This table holds identifying information for the patients in the cohort. There is only one row per patient.",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "HOME_PHONE",
+                "description": "Patient home phone",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ADDRESS_1",
+                "description": "Patient postal address, line 1",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PAT_NAME",
+                "description": "Patient last name, first name",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "STATE",
+                "description": "Patient postal address, state",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "LAST_ENCOUNTER_DATE",
+                "description": "Patient's last encounter date",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "ZIP_CODE",
+                "description": "Patient postal address, zip code",
+                "comment_field": "May be 9 digit zip code",
+                "nb_func": null
+            },
+            {
+                "field_name": "DOB",
+                "description": "Patient date of birth (DOB)",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "DEATH_DATE",
+                "description": "Patient death date (if known)",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "ADDRESS_2",
+                "description": "Patient postal address, line 2",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "CITY",
+                "description": "Patient postal address, city",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "WORK_PHONE",
+                "description": "Patient work phone",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "FIRST_ENCOUNTER_DATE",
+                "description": "Patient's first encounter date ",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "CELL_PHONE",
+                "description": "Patient cell phone",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "MRN",
+                "description": "Patient medical record number (MRN)",
+                "comment_field": "MRNs should have 7 digits. Please note that depending on how you import the data, some MRNs that have a leading \u201c0\u201d may show as only having 6 digits. This is because the MRN is missing its leading \u201c0\u201d. Please correct this and add the leading 0 back into the dataset and also add the leading 0 back if looking up the patients in CareConnect for chart review.",
+                "nb_func": null
+            },
+            {
+                "field_name": "EMAIL",
+                "description": "Patient email address",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "SOCIO-ECONOMICS",
+        "description": "This table holds Socio-Economic information for the patients in the cohort. There is only one row per patient",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "ADI_NATRANK",
+                "description": "Neighborhood area of deprivation index (ADI)  ranked scores at the national level",
+                "comment_field": "Link to Area Deprivation Index website: https://www.neighborhoodatlas.medicine.wisc.edu/ ",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "SVI_HCOMP",
+                "description": "Percentile ranking for Household composition theme according to the Social Vulnerability Index",
+                "comment_field": "Null values show -999. \nThis variable corresponds to RPL_THEME2\nThe CDC has used the 2018 American Community Survey 5 year dataset for their calculations. \nFor more information visit: https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2018.html (document also attached)\n",
+                "nb_func": null
+            },
+            {
+                "field_name": "INCOME",
+                "description": "Neighborhood Income Level of the patient",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SVI_TOTAL",
+                "description": "Overall percentale ranking or the Social Vulnerability Index",
+                "comment_field": "Null values show -999. \nThis variable corresponds to RPL_THEMES.\nThe CDC has used the 2018 American Community Survey 5 year dataset for their calculations. \nFor more information visit: https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2018.html (document also attached)\n",
+                "nb_func": null
+            },
+            {
+                "field_name": "ADI_STATERNK",
+                "description": "Neighborhood area of deprivation index (ADI)  ranked scores at the state level",
+                "comment_field": "A raw score is the actual score a neighborhood receives based on the theoretical domains that the ADI measures. A decile groups the ADI scores into 10 equal sections., categorizing the individual block group/neighborhood, with those in the first percentile being the least disadvantaged, and those in the hundredth being the most. Deciles are created for each state individually.\nLink to Area Deprivation Index website: https://www.neighborhoodatlas.medicine.wisc.edu/ \nCitation\nUniversity of Wisconsin School of Medicine and Public Health. {specify year} Area Deprivation Index {specify version}. Downloaded from https://www.neighborhoodatlas.medicine.wisc.edu/ {date}\n\nExample: University of Wisconsin School of Medicine Public Health. 2015 Area Deprivation Index v2.0. Downloaded from https://www.neighborhoodatlas.medicine.wisc.edu/ May 23, 2019.",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "ADI_STATERANK",
+                "description": "Neighborhood area of deprivation index (ADI)  ranked scores at the state level",
+                "comment_field": "A raw score is the actual score a neighborhood receives based on the theoretical domains that the ADI measures. A decile groups the ADI scores into 10 equal sections., categorizing the individual block group/neighborhood, with those in the first percentile being the least disadvantaged, and those in the hundredth being the most. Deciles are created for each state individually.",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "EDUCATION",
+                "description": "Neighborhood Education Level of the patient",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SVI_SOCIO_ECON",
+                "description": "Percentile ranking for Socioeconomic theme according to the Social Vulnerability Index",
+                "comment_field": "Null values show -999. \nThis variable corresponds to RPL_THEME1.\nThe CDC has used the 2018 American Community Survey 5 year dataset for their calculations. \nFor more information visit: https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2018.html (document also attached)\n",
+                "nb_func": null
+            },
+            {
+                "field_name": "SVI_MINO_LANG",
+                "description": "Percentile ranking for Minority status and language theme according to the Social Vulnerability Index",
+                "comment_field": "Null values show -999. \nThis variable corresponds to RPL_THEME3.\nThe CDC has used the 2018 American Community Survey 5 year dataset for their calculations. \nFor more information visit: https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2018.html (document also attached)\n",
+                "nb_func": null
+            },
+            {
+                "field_name": "SVI_HTYPE_TRANS",
+                "description": "Percentile ranking for Housing type and Transportation theme according to the Social Vulnerability Index",
+                "comment_field": "Null values show -999. \nThis variable corresponds to RPL_THEME4.\nThe CDC has used the 2018 American Community Survey 5 year dataset for their calculations. \nFor more information visit: https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2018.html (document also attached)\n",
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "INSURANCE",
+        "description": "This table holds the insurance information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter. ",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "MEM_EFF_TO_DATE",
+                "description": "The date after which the coverage is no longer in effect for the member and the member becomes ineligible for benefits",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "PAYOR_NAME",
+                "description": "The name of the payor associated with the dates effective for this row",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "FIN_CLASS_NAME",
+                "description": "The name of the financial class for the payor associated with the dates effective for this row",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "FILING_ORDER",
+                "description": "Order in which the claim is filed",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "MEM_EFF_FROM_DATE",
+                "description": "The date on which the coverage goes into effect for the member",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "ENCOUNTERS",
+        "description": "This table holds data for encounters for the patient cohort.  There can be multiple rows per patient, but only one row per encounter. ",
+        "date_field": "ENCOUNTER_DATE",
+        "fields": [
+            {
+                "field_name": "ENCOUNTER_AGE",
+                "description": "Age at time of encounter",
+                "comment_field": null,
+                "nb_func": "numstats"
+            },
+            {
+                "field_name": "EPIC_ENCOUNTER_TYPE",
+                "description": "Encounter type as recorded in Epic",
+                "comment_field": "List of possible values can be provided upon request",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "DISCHARGE_DATE",
+                "description": "Discharge date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_VISIT_TYPE",
+                "description": "Visit type",
+                "comment_field": "Values include: ED, ED to IP, IP, Ambulatory visit, Non-Acute institutional stay, Other ambulatory visit, No information, Unknown, Other",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "EPIC_DEPARTMENT_NAME",
+                "description": "Department name as recorded in Epic",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "HOSP_DISCHARGE_DISPOSITION",
+                "description": "Hospital discharge disposition",
+                "comment_field": "List of possible values can be provided upon request",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ENCOUNTER_PROV_ID",
+                "description": "A de-identified, unique ID number for the encounter visit provider (assigned by IP for coding purposes)",
+                "comment_field": "Use to link to provider information in the Provider file e.g. can link up with IP_PROVIDER_ID in Providers file",
+                "nb_func": null
+            },
+            {
+                "field_name": "EPIC_DEPARTMENT_ID",
+                "description": "Department ID as recorded in Epic",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ENCOUNTER_DATE",
+                "description": "Encounter date",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "LOS",
+                "description": "Length of stay",
+                "comment_field": null,
+                "nb_func": "numstats"
+            },
+            {
+                "field_name": "ED_DISPOSITION",
+                "description": "Emergency Department disposition",
+                "comment_field": "List of possible values can be provided upon request",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "DEPARTMENT_SPECIALTY",
+                "description": "Department specialty",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "LOCATION",
+                "description": "Physical location of care",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "ADMIT_DATE",
+                "description": "Admit date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "PROVIDERS",
+        "description": "This table holds provider information for the providers that treated the patients in the cohort.",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "IP_PROVIDER_ID",
+                "description": "A de-identified, unique ID number for the provider (assigned by IP for coding purposes)",
+                "comment_field": "Use to link to provider information in other tables e.g. can link up with IP_CURRENT_PCP_ID, IP_ENCOUNTER_PROV_ID, IP_APPOINTMENT_PROV_ID, IP_REFERRING_PROV_ID",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROVIDER_TYPE",
+                "description": "Provider type",
+                "comment_field": "E.g. Acupuncturist; Administrative Assistant; Anesthesiologist; Audiologist; Care Partner; Dentist; Dietitian, Registered; Fellow; Front Desk; Licensed Nurse; Medical Assistant; Medical Study; Midwife; Nurse Anesthetist; Nurse Practitioner; Occupational Therapist; Ophthalmology Modality; Optometrist, etc. ",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "UCLA_EMPLOYEE_FLAG",
+                "description": "UCLA provider flag",
+                "comment_field": "1 = UCLA Employee; [blank] = Not a UCLA employee",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "PROVIDER_SEX",
+                "description": "Provider Gender",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PROVIDER_NAME",
+                "description": "Provider last name, first name",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PRIMARY_SPECIALTY",
+                "description": "Primary specialty of provider",
+                "comment_field": null,
+                "nb_func": "catbar"
+            }
+        ]
+    },
+    {
+        "element": "HOSPITAL_UNIT_TRANSFERS",
+        "description": "This table holds within-hospital patient movement event data on admit, discharge, transfer time and location.",
+        "date_field": "EVENT_DATETIME_IN",
+        "fields": [
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "EVENT_DATETIME_OUT",
+                "description": "Patient date and time out",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "EPIC_DEPARTMENT_ID",
+                "description": "Department ID number",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "EPIC_DEPARTMENT_NAME",
+                "description": "Department name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "EVENT_DATETIME_IN",
+                "description": "Patient date and time in",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "LOCATION",
+                "description": "UCLA Location",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "EVENT_TYPE",
+                "description": "Event type",
+                "comment_field": "Admit; Admit/Discharge; Discharge; Transfer",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "DEPARTMENT_SPECIALTY",
+                "description": "Department specialty",
+                "comment_field": null,
+                "nb_func": "catbar"
+            }
+        ]
+    },
+    {
+        "element": "ENCOUNTER_DIAGNOSES",
+        "description": "This table holds encounter diagnoses data for the patients in the cohort. There can be multiple rows per patient as well as multiple rows per encounter. ",
+        "date_field": "DIAGNOSIS_DATE",
+        "fields": [
+            {
+                "field_name": "ICD_DESCRIPTION",
+                "description": "ICD Diagnosis Code Description",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PRESENT_ON_ADMISSION",
+                "description": "Diagnosis was present on admission",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "ADMISSION_DIAGNOSIS_FLAG",
+                "description": "Admit diagnosis flag",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "DIAGNOSIS_DATE",
+                "description": "Diagnosis date",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "HOSPITAL_FINAL_DIAGNOSIS",
+                "description": "Final hospital discharge diagnosis",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "ICD_CODE",
+                "description": "ICD Code",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ICD_TYPE",
+                "description": "ICD Type",
+                "comment_field": "9 = ICD-9; 10 = ICD-10; Please note ICD-9 codes are used prior to Oct 1, 2015 and ICD-10 codes are used after",
+                "nb_func": null
+            },
+            {
+                "field_name": "PRIMARY_DIAGNOSIS_FLAG",
+                "description": "Primary or secondary diagnosis",
+                "comment_field": "P = Primary; S = Secondary; blank = no value",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "DIAGNOSIS_AGE",
+                "description": "Age of patient at the time of diagnosis",
+                "comment_field": null,
+                "nb_func": "numstats"
+            }
+        ]
+    },
+    {
+        "element": "PROCEDURES",
+        "description": "This table holds procedure information for the patients in the cohort. There can be multiple rows per patient as well as multiple rows per encounter. ",
+        "date_field": "PROCEDURE_DATE",
+        "fields": [
+            {
+                "field_name": "PROCEDURE_DATE",
+                "description": "Procedure date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_DESCRIPTION",
+                "description": "Procedure description",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_CODE",
+                "description": "Procedure code",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "PROCEDURE_TYPE",
+                "description": "Procedure type",
+                "comment_field": "9 = ICD9, 10 = ICD10, CPT, HCPCS; Please note ICD-9 codes are used prior to Oct 1, 2015 and ICD-10 codes are used after",
+                "nb_func": "catbar"
+            }
+        ]
+    },
+    {
+        "element": "PROBLEM_LISTS",
+        "description": "This table holds problem list info for the patients in the cohort.  There can be multiple rows per patient.",
+        "date_field": "NOTED_DATE",
+        "fields": [
+            {
+                "field_name": "DATE_OF_ENTRY",
+                "description": "Date the problem was entered into the chart",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "ICD_DESCRIPTION",
+                "description": "ICD Diagnosis Code Description",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PROBLEM_LIST_ID",
+                "description": "Problem list ID number for a particular encounter (identified and can be used to look up in CareConnect)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "PRIORITY",
+                "description": "Problem priority",
+                "comment_field": "High, Medium or Low",
+                "nb_func": null
+            },
+            {
+                "field_name": "HOSPITAL_PROBLEM",
+                "description": "Hospital problem",
+                "comment_field": "N = No; Y = Yes",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROBLEM_STATUS",
+                "description": "Problem status",
+                "comment_field": "Values include: Active, Deleted, or Resolved ",
+                "nb_func": null
+            },
+            {
+                "field_name": "ICD_CODE",
+                "description": "ICD Code",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ENCOUNTER_DATE",
+                "description": "Encounter date",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "RESOLVED_DATE",
+                "description": "Date the problem was resolved",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROBLEM_COMMENT",
+                "description": "Problem comment (free-text field)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ICD_TYPE",
+                "description": "ICD Type",
+                "comment_field": "9 = ICD-9; 10 = ICD-10; Please note ICD-9 codes are used prior to Oct 1, 2015 and ICD-10 codes are used after",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROBLEM_DESCRIPTION",
+                "description": "Problem description",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "NOTED_DATE",
+                "description": "Date the problem was noted",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "DELETED_DATE",
+                "description": "Date the problem was deleted",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "APPOINTMENTS",
+        "description": "This table holds appointment information for the patients in the cohort, which are the non-completed encounters. (Please note: Completed appointments are in the Encounters table.) There can be multiple rows per patient. ",
+        "date_field": "APPOINTMENT_DATETIME",
+        "fields": [
+            {
+                "field_name": "APPOINTMENT_MADE_DATETIME",
+                "description": "Date and time of when the appointment was scheduled/made",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "APPOINTMENT_STATUS",
+                "description": "Appointment status",
+                "comment_field": "Arrived, Canceled, Completed, HH Incomplete, Left without seen, No Show, or Pharmacy Billing Complete",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "DEPARTMENT_NAME",
+                "description": "Department name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "DEPARTMENT_SPECIALTY",
+                "description": "Department specialty name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "LOCATION",
+                "description": "Location name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "APPOINTMENT_CONFIRM_STATUS",
+                "description": "Appointment confirmation status",
+                "comment_field": "Confirmed, Not Confirmed, or Removed",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROV_NAME_WID",
+                "description": "Provider name with [ID number]",
+                "comment_field": "FYI: Please ignore the ID next to the name here, use the \u201cprov study ID\u201d instead for any matching up with any other files containing provider IDs",
+                "nb_func": null
+            },
+            {
+                "field_name": "APPOINTMENT_DATETIME",
+                "description": "Date and time of appointment",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "REFERRING_PROV_NAME_WID",
+                "description": "Referring provider name with [ID number]",
+                "comment_field": "FYI: Please ignore the ID next to the name here, use the \u201cprov study ID\u201d instead for any matching up with any other files containing provider IDs",
+                "nb_func": null
+            },
+            {
+                "field_name": "DEPARTMENT_ID",
+                "description": "Department ID number",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "CENTER_NAME",
+                "description": "Center name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "PROCEDURE_NAME",
+                "description": "Procedure name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            }
+        ]
+    },
+    {
+        "element": "FLOWSHEET_VITALS",
+        "description": "This table holds flowsheet information for vital signs for the patients in the cohort. There can be multiple rows per patient. ",
+        "date_field": "VITAL_SIGN_TAKEN_TIME",
+        "fields": [
+            {
+                "field_name": "VITAL_SIGN_TAKEN_TIME",
+                "description": "The date and time the measure was taken",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "VITAL_SIGN_TYPE",
+                "description": "Vital sign types",
+                "comment_field": "Per the data elements template, providing data only on the patients\u2019 height, bmi, and weight",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "VITAL_SIGN_VALUE",
+                "description": "The measure result (number)",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "LABS",
+        "description": "This table holds all laboratory result information for the patients in the cohort. There can be multiple rows per patient as well as multiple rows per encounter.",
+        "date_field": "ORDER_TIME",
+        "fields": [
+            {
+                "field_name": "REFERENCE_LOW",
+                "description": "Laboratory test result low reference unit",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "RESULT_TIME",
+                "description": "Laboratory result date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "SPECIMEN_TAKEN_TIME",
+                "description": "Specimen taken date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_CODE",
+                "description": "Laboratory procedure code",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "COMPONENT_ID",
+                "description": "Laboratory component ID number",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ORDER_TIME",
+                "description": "Laboratory order date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "REFERENCE_UNIT",
+                "description": "Laboratory test result reference unit",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "LOINC",
+                "description": "Laboratory LOINC code",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ORDER_PROC_ID",
+                "description": "A de-identified, unique ID number for the order (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "REFERENCE_HIGH",
+                "description": "Laboratory test result high reference unit",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "COMPONENT_NAME",
+                "description": "Laboratory component name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "RESULT",
+                "description": "Laboratory test result",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_ID",
+                "description": "Laboratory procedure ID number",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_DESCRIPTION",
+                "description": "Laboratory Procedure (e.g. panel) description",
+                "comment_field": null,
+                "nb_func": "catbar"
+            }
+        ]
+    },
+    {
+        "element": "MEDICATIONS",
+        "description": "This table holds medication information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
+        "date_field": "ORDER_DATE",
+        "fields": [
+            {
+                "field_name": "EPIC_MEDICATION_NAME",
+                "description": "Epic medication name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "MEDISPAN_GENERIC_NAME",
+                "description": "Medispan generic name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "TAKEN_TIME",
+                "description": "Medication taken date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI Note that this variable applies to inpatients only (administration time)",
+                "nb_func": null
+            },
+            {
+                "field_name": "CURRENT_MEDICATION",
+                "description": "Medication is a current medication",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "ORDER_DATE",
+                "description": "Medication order date ",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "MEDISPAN_CLASS_NAME",
+                "description": "Pharmaceutical class of medication",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "FREQUENCY",
+                "description": "Frequency of medication dosage",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "ORDERING_MODE",
+                "description": "Ordering mode",
+                "comment_field": "Inpatient or outpatient",
+                "nb_func": null
+            },
+            {
+                "field_name": "ROUTE",
+                "description": "Medication administration route",
+                "comment_field": "List of possible values can be provided upon request",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ORDER_MED_ID",
+                "description": "A de-identified, unique ID number for the medication order (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "START_DATE",
+                "description": "Medication start date ",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "MEDISPAN_SUBCLASS_NAME",
+                "description": "Pharmaceutical subclass of medication",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "EPIC_MEDICATION_ID",
+                "description": "Medication ID number in CareConnect",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "THERA_CLASS",
+                "description": "Therapeutic class of medication",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "END_DATE",
+                "description": "Medication end date",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "DOSE",
+                "description": "Numerical dose",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "REFILLS",
+                "description": "Number of medication refills",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "QUANTITY",
+                "description": "The quantity of the prescription being dispensed as entered by the user in the orders activity",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SIG",
+                "description": "Provider instructions to patient for taking the medication",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "DOSE_UNIT",
+                "description": "Dose unit",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PHARM_SUBCLASS",
+                "description": "Pharmaceutical subclass of medication",
+                "comment_field": null,
+                "nb_func": "catbar"
+            }
+        ]
+    },
+    {
+        "element": "SOCIAL_HISTORY",
+        "description": "This table holds social history information for the patients in the cohort. We included all values for the requested fields and provide only the latest value.",
+        "date_field": "CONTACT_DATE",
+        "fields": [
+            {
+                "field_name": "CONTACT_DATE",
+                "description": "Date of the encounter when this piece of information was recorded",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "DIAPHRAGM_YN",
+                "description": "Diaphragm use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SPONGE_YN",
+                "description": "Sponge use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_IPV_EMOTIONAL_ABUSE",
+                "description": "Social determinants of health (SDH) question about emotional abuse from an intimate partner",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_PHONE_COMMUNICATION",
+                "description": "Social determinants of health (SDH) question about how often the patient socializes with friends or family over the phone",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PIPES_YN",
+                "description": "Pipe use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CIGARS_YN",
+                "description": "Cigar use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SMOKELESS_QUIT_DATE",
+                "description": "The date on which the patient quit using smokeless tobacco",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "ALCOHOL_OUNCES_PER_WEEK",
+                "description": "Alcohol drinks per week (average)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ILLICIT_DRUG_COMMENTS",
+                "description": "Illicit drug comments (free-text)",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_ALCOHOL_FREQ",
+                "description": "Social determinants of health (SDH) question about frequency of drinking alcohol",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_CLUB_MEMBER",
+                "description": "Social determinants of health (SDH) question about whether the patient is a member of any clubs or organizations",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ALCOHOL_COMMENTS",
+                "description": "Alcohol Comments",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "ILLICIT_DRUG_USER",
+                "description": "Category value associated with the patient\u2019s use of illicit drugs",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IV_DRUG_USER",
+                "description": "IV drug user",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "FEMALE_PARTNER",
+                "description": "Female partner",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SMOKING_TOBACCO_USER",
+                "description": "Smoking Tobacco user",
+                "comment_field": "Values in the dataset include: Current Every Day Smoker, Current Some Day Smoker, Former Smoker, Heavy Tobacco Smoker, Light Tobacco Smoker, Never Assessed, Never Smoker, Passive Smoke Exposure - Never Smoker, Smoker, Current Status Unknown, Unknown If Ever Smoked",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SURGICAL_YN",
+                "description": "Surgical method of birth control such as hysterectomy, vasectomy, or tubal-ligation.",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "INJECTION_YN",
+                "description": "Injection form of birth control",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "INSERTS_YN",
+                "description": "Inserts as a form of birth control",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_DAILY_STRESS",
+                "description": "Social determinants of health (SDH) question about daily stress",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_PHYS_ACT_DAYS_P_WK",
+                "description": "Social determinants of health (SDH) question about how many days a week the patient exercises",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "TOBACCO_USED_YEARS",
+                "description": "Years of tobacco use",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SNUFF_YN",
+                "description": "Snuff use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SEXUALLY_ACTIVE",
+                "description": "Category value associated with the patient\u2019s sexual activity",
+                "comment_field": "Values in the dataset may include: never; not asked; not currently; yes; (blank)",
+                "nb_func": null
+            },
+            {
+                "field_name": "PILL_YN",
+                "description": "Birth Control Pills",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CONDOM_YN",
+                "description": "Condom use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_FINANCIAL_RES_STRAIN",
+                "description": "Social determinants of health (SDH) question about financial resource strain",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_MED_TRANS_NEEDS",
+                "description": "Social determinants of health (SDH) question about whether the patient had difficulty regarding transportation for medical appointments and medicine",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_OTHER_TRANS_NEEDS",
+                "description": "Social determinants of health (SDH) question about whether the patient had difficulty regarding transportation for things other than medical appointments and medicine",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHEW_YN",
+                "description": "Chew use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SMOKING_START_DATE",
+                "description": "Smoking start date",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "ALCOHOL_TYPE",
+                "description": "Alcohol type",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "MALE_PARTNER",
+                "description": "Male partner",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "TOBACCO_FORM",
+                "description": "Tobacco Form",
+                "comment_field": "Values in the dataset include: Cigarettes; Pipes; Cigars; Chew; Snuff",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SDH_EDUCATION_LEVEL",
+                "description": "Social determinants of health (SDH) question; categorical responses corresponding to highest level of school attended",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_ALCOHOL_BINGE",
+                "description": "Social determinants of health (SDH) question about binge drinking",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_SOCIALIZE_FREQ",
+                "description": "Social determinants of health (SDH) question about how often the patient socializes with friends or family in person",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_PHYS_ACT_MIN_P_SESS",
+                "description": "Social determinants of health (SDH) question about how minutes the patient exercises on days that they exercise",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "TOBACCO_PACK_PER_DAY",
+                "description": "Tobacco packs per day",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "CIGARETTES_YN",
+                "description": "Cigarette use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SMOKING_TOB_STATUS",
+                "description": "Smoking tobacco status",
+                "comment_field": "Values include: Former Smoker, Never Smoker, Current Some Day Smoker, Unknown If Ever Smoked, Never Assessed, etc.",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SPEMICIDE_YN",
+                "description": "Spermicide use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "IMPLANT_YN",
+                "description": "Implant form of birth control",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "RHYTHYM_YN",
+                "description": "Rhythm method use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_IPV_SEXUAL_ABUSE",
+                "description": "Social determinants of health (SDH) question about sexual abuse from an intimate partner",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_CLUB_MTG_ATTEND",
+                "description": "Social determinants of health (SDH) question about how often the patient attends club or other organization meetings in a year",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_FOOD_INSEC_SCARCE",
+                "description": "Social determinants of health (SDH) question about whether or not the patient had run out of food and was not able to buy more",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "TOBACCO_USER",
+                "description": "Tobacco user",
+                "comment_field": "Values in the dataset include: Never; Not Asked; Passive; Quite; Yes; (blank)",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SMOKING_QUIT_DATE",
+                "description": "Smoking quit date",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "ALCOHOL_USER",
+                "description": "Alcohol user",
+                "comment_field": "Yes; No",
+                "nb_func": null
+            },
+            {
+                "field_name": "IUD_YN",
+                "description": "IUD use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ABSTINENCE_YN",
+                "description": "Abstinence use",
+                "comment_field": "Y = Yes; N = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_LIVING_W_SPOUSE",
+                "description": "Social determinants of health (SDH) question about whether or not the patient is currently living with spouse or partner",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_CHURCH_ATTENDANCE",
+                "description": "Social determinants of health (SDH) question about how often the patient attends religious services",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SMOKELESS_TOB_USE",
+                "description": "Patient\u2019s usage of smokeless tobacco",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "TOBACCO_COMMENT",
+                "description": null,
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ALCOHOL_DRINKS_WK",
+                "description": "Alcohol drinks per week (average)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_IPV_FEAR",
+                "description": "Social determinants of health (SDH) question about fear of an intimate partner",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_IPV_PHYSICAL",
+                "description": "Social determinants of health (SDH) question about physical abuse from an intimate partner",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_ALCOHOL_DRINKS_P_DAY",
+                "description": "Social determinants of health (SDH) question about number of standard drinks consumed in a typical day",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SDH_FOOD_INSEC_WORRY",
+                "description": "Social determinants of health (SDH) question about whether the patient worried about food running out in the past year or not",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ILLICIT_DRUG_FREQUENCY",
+                "description": "Illicit drug frequency",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "SOCIAL_DETERMINANTS_OF_HEALTH",
+        "description": "This table holds social determinants of health information for the patients in the cohort. We included all values for the requested fields.",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "CONTACT_DATE",
+                "description": "Date of the encounter when this piece of information was recorded",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "PHYS_ACT_DAYS_P_WK",
+                "description": "Question About How Many Days A Week The Patient Exercises",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "CLUB_MTG_ATTEND",
+                "description": "Question About How Often The Patient Attends Club Or Other Organization Meetings In A Year",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "FOOD_INSEC_SCARCE",
+                "description": "Question About Whether Or Not The Patient Had Run Out Of Food And Was Not Able To Buy More",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ALCOHOL_BINGE",
+                "description": "Question About Binge Drinking",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "FOOD_INSEC_WORRY",
+                "description": "Question About Whether The Patient Worried About Food Running Out In The Past Year Or Not",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "FINANCIAL_RES_STRAIN",
+                "description": "Question About Financial Resource Strain",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IPV_FEAR",
+                "description": "Question About Fear Of An Intimate Partner",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IPV_PHYSICAL",
+                "description": "Question About Physical Abuse From An Intimate Partner",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SOCIALIZE_FREQ",
+                "description": "Question About How Often The Patient Socializes With Friends Or Family In Person",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "MED_TRANS_NEEDS",
+                "description": "Question About Whether The Patient Had Difficulty Regarding Transportation For Medical Appointments And Medicine",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IPV_EMOTIONAL_ABUSE",
+                "description": "Question About Emotional Abuse From An Intimate Partner",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "CLUB_MEMBER",
+                "description": "Question About Whether The Patient Is A Member Of Any Clubs Or Organizations",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ALCOHOL_DRINKS_P_DAY",
+                "description": "Question About Number Of Standard Drinks Consumed In A Typical Day",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "OTHER_TRANS_NEEDS",
+                "description": "Question About Whether The Patient Had Difficulty Regarding Transportation For Things Other Than Medical Appointments And Medicine",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "EDUCATION_LEVEL",
+                "description": "Question; Categorical Responses Corresponding To Highest Level Of School Attended",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "DAILY_STRESS",
+                "description": "Question About Daily Stress",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IPV_SEXUAL_ABUSE",
+                "description": "Question About Sexual Abuse From An Intimate Partner",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ALCOHOL_FREQ",
+                "description": "Question About Frequency Of Drinking Alcohol",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PHYS_ACT_MIN_P_SESS",
+                "description": "Question About How Minutes The Patient Exercises On Days That They Exercise",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PHONE_COMMUNICATION",
+                "description": "Question About How Often The Patient Socializes With Friends Or Family Over The Phone",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "CHURCH_ATTENDANCE",
+                "description": "Question About How Often The Patient Attends Religious Services",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "LIVING_W_SPOUSE",
+                "description": "Question About Whether Or Not The Patient Is Currently Living With Spouse Or Partner",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "ALLERGIES",
+        "description": "This table holds allergy information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
+        "date_field": "DATE_NOTED",
+        "fields": [
+            {
+                "field_name": "REACTION",
+                "description": "Reaction",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "DESCRIPTION",
+                "description": "Description",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ALLERGY_STATUS",
+                "description": "Allergy status",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SEVERITY",
+                "description": "Severity of allergy",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use to link to all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "ALLERGEN",
+                "description": "Allergen",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "DATE_NOTED",
+                "description": "Date noted",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "PROVIDER_NOTES",
+        "description": "This table holds clinical documents/provider notes data for the patients in the cohort. There can be multiple rows per patient as well as multiple rows per encounter. We pulled data only for the note types selected on the driver list by the study team.",
+        "date_field": "CREATE_DATETIME",
+        "fields": [
+            {
+                "field_name": "CONTACT_DATE",
+                "description": "Contact date",
+                "comment_field": "Format: MM/DD/YYYY",
+                "nb_func": null
+            },
+            {
+                "field_name": "CREATE_DATETIME",
+                "description": "Create date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "CREATE_BY",
+                "description": "Note created by",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "NOTE_TEXT",
+                "description": "Note text",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_NOTE_ID",
+                "description": "A de-identified, unique ID number for the individual note (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "NOTE_TYPE",
+                "description": "Note type",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the individual encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "LINE_NUMBER",
+                "description": "Line number",
+                "comment_field": "The note text is broken into multiple rows, and this variable should be used to put the note text in sequential order",
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "PATHOLOGY",
+        "description": "This table holds the pathology information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
+        "date_field": "ORDER_TIME",
+        "fields": [
+            {
+                "field_name": "ORDER_TIME",
+                "description": "Order date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "RESULT_TIME",
+                "description": "Result date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "SPECIMEN_TAKEN_TIME",
+                "description": "Specimen taken date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ORDER_PROC_ID",
+                "description": "A de-identified, unique ID number for the order (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "SPECIMEN_SOURCE",
+                "description": "Specimen source (e.g. Lung, Right Lower Lobe)",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "ACCESSION_NUMBER",
+                "description": "Pathology accession number (can be used to look up image order in CareConnect)",
+                "comment_field": "This variable is a PHI field",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_DESCRIPTION",
+                "description": "Procedure (e.g. SOLID TUMOR MOLECULAR TESTING; PATHOLOGY, CYTOLOGY FNA) description",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SPECIMEN_TYPE",
+                "description": "Specimen type (e.g. Tissue)",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ACCESSION_NUMBER",
+                "description": "A de-identified, unique ID number for the individual pathology accession number",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "PATHOLOGY_RESULTS",
+        "description": "This table holds the pathology results for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "IP_ORDER_PROC_ID",
+                "description": "A de-identified, unique ID number for the order (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "COMPONENT_ID",
+                "description": "Pathology component ID number",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "COMPONENT_NAME",
+                "description": "Pathology component name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "SORT_KEY",
+                "description": "Internal Sort Key",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "RESULT_TXT",
+                "description": "Pathology test result",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "IMAGING",
+        "description": "This table holds imaging test data for the patients in the cohort.  There can be multiple rows per patient. ",
+        "date_field": "ORDER_TIME",
+        "fields": [
+            {
+                "field_name": "ORDER_PROC_ID",
+                "description": "Order procedure ID number",
+                "comment_field": "Unique order ID that can be used to link to narrative and impression",
+                "nb_func": null
+            },
+            {
+                "field_name": "ORDER_TIME",
+                "description": "The order date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_ID",
+                "description": "Procedure ID number",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ORDER_PROC_ID",
+                "description": "A de-identified, unique ID number for the order (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "RESULT_TIME",
+                "description": "The result and date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "ACCESSION_NUMBER",
+                "description": "Imaging accession number (can be used to look up image order in CareConnect)",
+                "comment_field": "This variable is a PHI field",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_CODE",
+                "description": "Procedure code",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ACCESSION_NUMBER",
+                "description": "A de-identified, unique ID number for the individual imaging accession number",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_NAME",
+                "description": "Procedure name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            }
+        ]
+    },
+    {
+        "element": "IMAGING_IMPRESSIONS",
+        "description": "This table holds imaging impressions results for the patients in the cohort.  There can be multiple rows per patient.",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "IP_ORDER_PROC_ID",
+                "description": "A de-identified, unique ID number for the order (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "IMPRESSION",
+                "description": "Imaging Impression",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "LINE",
+                "description": "Internal line number for sorting",
+                "comment_field": "The note text is broken into multiple rows, and this variable should be used to put the note text in sequential order",
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "IMAGING_NARRATIVES",
+        "description": "This table holds imaging narrative results for the patients in the cohort.  There can be multiple rows per patient.",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "NARRATIVE",
+                "description": "Imaging narrative text",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ORDER_PROC_ID",
+                "description": "A de-identified, unique ID number for the order (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "LINE",
+                "description": "For sorting (internal)",
+                "comment_field": "The note text is broken into multiple rows, and this variable should be used to put the note text in sequential order",
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "MICROBIOLOGY",
+        "description": "This table holds the microbiology information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
+        "date_field": "ORDER_TIME",
+        "fields": [
+            {
+                "field_name": "SORTING",
+                "description": "Internal Sorting",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "RESULTS",
+                "description": "Microbiology test results",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "RESULT_TIME",
+                "description": "Microbiology result date and time",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "COMPONENT_COMMENT",
+                "description": "Component comment",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ORDER_PROC_ID",
+                "description": "A de-identified, unique ID number for the order (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "COMPONENT_ID",
+                "description": "Microbiology component ID number",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "LINE_COMMENT",
+                "description": "Internal. for sorting",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "RESULT",
+                "description": "Microbiology test result",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "PROCEDURE_CODE",
+                "description": "Procedure code",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "COMPONENT",
+                "description": "Microbiology component",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "MICRO_SORTING",
+                "description": "Internal, for sorting",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "SPECIMEN_TYPE",
+                "description": "Specimen type",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "RESULTS_CMT",
+                "description": "Results comment (free text)",
+                "comment_field": "This variable is a PHI/free text field ",
+                "nb_func": null
+            },
+            {
+                "field_name": "ORDER_TIME",
+                "description": "Microbiology order date and time ",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "SPECIMEN_SOURCE",
+                "description": "Lab specimen source",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "COMPONENT_NAME",
+                "description": "Microbiology component name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "PROCEDURE_NAME",
+                "description": "Procedure name",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "LINE",
+                "description": "Internal line number for sorting",
+                "comment_field": "The note text is broken into multiple rows, and this variable should be used to put the note text in sequential order",
+                "nb_func": null
+            },
+            {
+                "field_name": "ORGANISM_NAME",
+                "description": "Organism name",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "MICROBIOLOGY_SENSITIVITY_SUSCEPTIBILITY",
+        "description": "This table holds the microbiology information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter. ",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "SUSCEPTIBILITY",
+                "description": "Susceptibility",
+                "comment_field": "Values include: Intermediate; Negative; No Interpretive Criteria; Resistant; Susceptible; or [blank]",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "ANTIBIOTIC",
+                "description": "Antibiotic",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ORDER_PROC_ID",
+                "description": "A de-identified, unique ID number for the order (assigned by IP for coding purposes)",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "SENSITIVITY",
+                "description": "Sensitivity",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "ORGANISM_NAME",
+                "description": "Organism name",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "ELIXHAUSER",
+        "description": "This table holds patient information of diagnosed illnesses that impact their overall likelihood of death according to the Elixhauser system.",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "ELIX_CHF",
+                "description": "Congestive heart failure",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_PULMCIRC",
+                "description": "Pulmonary circulation disorder",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_DMCX",
+                "description": "Diabetes with chronic complications",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_RENLFAIL",
+                "description": "Renal failure",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_ULCER",
+                "description": "Peptic ulcer disease",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_VALVE",
+                "description": "Valvular disease",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_PERIVASC",
+                "description": "Peripheral vascular disease",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_LIVER",
+                "description": "Liver disease",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_AIDS",
+                "description": "AIDS/HIV",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_LYMPH",
+                "description": "Lymphoma",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_NEURO",
+                "description": "Other neurological disorders",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_SID30_SCORE",
+                "description": "Score - Derived from the original 30 comorbidities",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_ANEMDEF",
+                "description": "Anemia deficiency",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_HTN_C",
+                "description": "Hypertension, complicated",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_DM",
+                "description": "Diabetes without chronic complications",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_HYPOTHY",
+                "description": "Hypothyroidism",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_COAG",
+                "description": "Coagulopathy",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_HTN_UNC",
+                "description": "Hypertension, uncomplicated",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_PARA",
+                "description": "Paralysis",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_ARTH",
+                "description": "Rheumatoid arthritis",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_ALCOHOL",
+                "description": "Alcohol abuse",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_VW_SCORE",
+                "description": "Score - Van Walraven",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use to link to all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_CHRNLUNG",
+                "description": "Chronic pulmonary disease",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_METS",
+                "description": "Metastatic cancer",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_OBESE",
+                "description": "Obesity",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_DRUG",
+                "description": "Drug abuse",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_PSYCH",
+                "description": "Psychoses",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_DEPRESS",
+                "description": "Depression",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_CARDARRH",
+                "description": "Cardiac arrhythmias",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_TUMOR",
+                "description": "Solid tumor without metastasis",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_WGHTLOSS",
+                "description": "Weightloss",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_LYTES",
+                "description": "Fluid and electrolyte disorders",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_BLDLOSS",
+                "description": "Bloodloss anemia",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "ELIX_SID29_SCORE",
+                "description": "Score - Excludes cardiac arrhythmia comorbidity",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "CHARLSON",
+        "description": "This table holds patient information of diagnosed illnesses that impact their overall likelihood of death according to the Charlson system.",
+        "date_field": null,
+        "fields": [
+            {
+                "field_name": "CHAR_PARAPLEGIA_HEMIPLEGIA",
+                "description": "Hemiplegia or paraplegia ",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_METASTATIC_CARCINOMA",
+                "description": "Metastatic solid tumor \n",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, \nunique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use to link to all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_MOD_OR_SEV_LIVER_DISEASE",
+                "description": "Moderate or severe liver \ndisease\n",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_DEMENTIA",
+                "description": "Dementia",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_ULCER",
+                "description": "Peptic ulcer disease ",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_DMCX",
+                "description": "Diabetes with chronic \ncomplication \n",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_PERIVASC",
+                "description": "Peripheral vascular \ndisease",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_CEREBROVASCULAR_DISEASE",
+                "description": "Cerebrovascular disease",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_DM",
+                "description": "Diabetes without chronic \ncomplication \n",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_TOTAL_SCORE",
+                "description": "Charlson total score",
+                "comment_field": null,
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_CHF",
+                "description": "Congestive heart failure",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_CHRNLUNG",
+                "description": "Chronic pulmonary \ndisease",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_RENAL_DISEASE",
+                "description": "Renal disease",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_AIDS_HIV",
+                "description": "AIDS/HIV",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_MILD_LIVER_DISEASE",
+                "description": "Mild liver disease ",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_MYOCARDIAL_INFARCTION",
+                "description": "Myocardial infarction",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_CONN_TISS_RHEUM_DISEASE",
+                "description": "Rheumatic disease ",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_CANCER",
+                "description": "Any malignancy, \nincluding lymphoma \nand leukemia, except \nmalignant neoplasm of skin \n",
+                "comment_field": "1 = Yes; 0 = No",
+                "nb_func": null
+            },
+            {
+                "field_name": "CHAR_AGE_ADJ_SCORE",
+                "description": "Charlson age adjusted score",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    }
+]
