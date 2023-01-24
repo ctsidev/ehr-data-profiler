@@ -11,12 +11,16 @@ data_dictionary = json.load(open('data_dictionary.json'))
 data_files = os.listdir('./Data')
 
 cells = []
-cells.append(new_code_cell(source="import pandas as pd\nimport matplotlib.pyplot as plt\nfrom dp_lib import dateline, catbar, numstats, missingness, text_search, check_dups, flow_stats, lab_stats"))
+
+cells.append(new_markdown_cell(source='# EHR Data Profiler\n## Run the next cell to make all the imports, which include Pandas and the EHR data anaylsis functions:'))
+cells.append(new_code_cell(source="import pandas as pd\nimport matplotlib.pyplot as plt\nfrom lib.ehr_dp_lib import *"))
+cells.append(new_markdown_cell(source=open('lib/markup_1.md').read()))
+cells.append(new_markdown_cell(source=open('lib/markup_2.md').read()))
 
 for table in data_dictionary:
     csv_file = string.capwords(table['element'].replace('_', ' ')).replace(' ', '_') + '.csv'
     if csv_file in data_files:
-        cells.append(new_markdown_cell(source=f"# {table['element']}"))
+        cells.append(new_markdown_cell(source=f"## {table['element']}"))
         table_df = f"{table['element'].lower()}_df"
         cells.append(new_code_cell(source=f"{table_df} = pd.read_csv('Data/{csv_file}')\n{table_df}"))
         cells.append(new_code_cell(source=f"check_dups({table_df})"))
@@ -33,10 +37,10 @@ for table in data_dictionary:
                 else:
                     cells.append(new_code_cell(source=f"{nb_field['nb_func']}({table_df}, \'{nb_field['field_name']}\')"))
 
-                if table_df == 'flowsheet_vitals_df':
-                    cells.append(new_code_cell(source=f"flow_stats({table_df})"))
-                elif table_df == 'labs_df':
-                    cells.append(new_code_cell(source=f"lab_stats({table_df}, top=10)"))
+        if table_df == 'flowsheet_vitals_df':
+            cells.append(new_code_cell(source=f"flow_stats({table_df})"))
+        elif table_df == 'labs_df':
+            cells.append(new_code_cell(source=f"lab_stats({table_df}, top=10)"))
 
 nb = new_notebook(cells=cells, metadata={ 'language' : 'python' })
 nbf.write(nb, open('Data_Profiler.ipynb', 'w', encoding='utf-8'), 4)

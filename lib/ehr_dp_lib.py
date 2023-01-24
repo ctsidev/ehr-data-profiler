@@ -34,7 +34,7 @@ def missingness(df):
     df.columns = ['COLUMN','NULLS']
     return df
 
-def text_search(df, col, search, ignore_case=False):
+def text_search(df, col, search, ignore_case=True):
     if ignore_case:
         return df[df[col].str.contains(search, flags=re.I) == True]
     else:
