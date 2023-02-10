@@ -13,9 +13,12 @@ data_files = os.listdir('./Data')
 cells = []
 
 cells.append(new_markdown_cell(source='# EHR Data Profiler\n## Run the next cell to make all the imports, which include Pandas and the EHR data anaylsis functions:'))
-cells.append(new_code_cell(source="import pandas as pd\nimport matplotlib.pyplot as plt\nfrom lib.ehr_dp_lib import *"))
-cells.append(new_markdown_cell(source=open('lib/markup_1.md').read()))
-cells.append(new_markdown_cell(source=open('lib/markup_2.md').read()))
+cells.append(new_code_cell(source="import pandas as pd\nimport matplotlib.pyplot as plt\nfrom lib.ehr_dp_lib import *\npd.set_option('display.max_colwidth', None)"))
+cells.append(new_markdown_cell(source=open('markup_1.md').read()))
+cells.append(new_markdown_cell(source=open('markup_2.md').read()))
+
+cells.append(new_markdown_cell(source='## Run the following block to describe the tables in your Data folder:'))
+cells.append(new_code_cell(source='describe_tables()'))
 
 for table in data_dictionary:
     csv_file = string.capwords(table['element'].replace('_', ' ')).replace(' ', '_') + '.csv'
@@ -23,7 +26,6 @@ for table in data_dictionary:
         cells.append(new_markdown_cell(source=f"## {table['element']}"))
         table_df = f"{table['element'].lower()}_df"
         cells.append(new_code_cell(source=f"{table_df} = pd.read_csv('Data/{csv_file}')\n{table_df}"))
-        cells.append(new_code_cell(source=f"check_dups({table_df})"))
         cells.append(new_code_cell(source=f"missingness({table_df})"))
         if table['date_field']:
             cells.append(new_code_cell(source=f"dateline({table_df}, '{table['date_field']}')"))

@@ -1,6 +1,29 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import re
+import os
+import json
+
+data_dictionary = json.load(open('lib/data_dictionary.json'))
+
+def describe_tables():
+    data = []
+    for f in os.listdir('Data'):
+        table = {}
+        table['TABLE'] = f
+        df = pd.read_csv(f'Data/{f}')
+        table['ROW_COUNT'] = len(df)
+        table['COLUMN_COUNT'] = len(df.columns)
+        desc = ''
+        for row in data_dictionary:
+            if row['element'] == f.split('.')[0].upper():
+                desc = row['description']
+        table['DESCRIPTION'] = desc
+        data.append(table)
+    
+    return pd.DataFrame(data)
+
+
 
 def dateline(df, date_col):
     date_series = pd.to_datetime(df[date_col])
@@ -24,14 +47,17 @@ def catbar(df, col, graph=False):
     else:
         df = df[col].value_counts().reset_index()
         df.columns = [col, 'COUNT']
+        df['PERCENT'] = (df['COUNT'] / df['COUNT'].sum()) * 100
         return df
 
 def numstats(df, col):
     return df[col].describe().reset_index().rename(columns={'index': 'STAT_TYPE'})
 
 def missingness(df):
+    total = len(df)
     df = df.isna().sum().reset_index()
     df.columns = ['COLUMN','NULLS']
+    df['PERCENT'] = (df['NULLS'] / total) * 100
     return df
 
 def text_search(df, col, search, ignore_case=True):
@@ -39,12 +65,6 @@ def text_search(df, col, search, ignore_case=True):
         return df[df[col].str.contains(search, flags=re.I) == True]
     else:
         return df[df[col].str.contains(search) == True]
-
-def check_dups(df):
-    if len(df[df.duplicated()]):
-        return df[df.duplicated()]
-    else:
-        return 'No duplicates'
 
 def flow_stats(df):
     df_list = []

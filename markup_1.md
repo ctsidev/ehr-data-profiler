@@ -3,8 +3,6 @@
 
 ### Below is a list of the EHR Data Profiler functions, arguments, and descriptions:
 
-- **check_dups( *dataframe name* )**:  Checks duplicate rows in dataframe, if none found outputs 'No duplicates' otherwise it returns a dataframe of the duplicate rows.
-
 
 - **missingness( *dataframe name* )**: Returns a dataframe of the number of null values per column.
 
