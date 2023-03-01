@@ -78,7 +78,9 @@ female_spanish_pat_ids
 
 We can now take this variable `female_spanish_pat_ids` to then plug into the fnction `filter_by_ids` to get the Procedures for that cohort:
   
-`filter_by_ids(procedures_df, female_spanish_pat_ids)`
+```
+filter_by_ids(procedures_df, female_spanish_pat_ids)
+```
 
 You will now have a DataFrame of Procedures just for the cohort of 'Female Spanish speakers':
   
