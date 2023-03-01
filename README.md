@@ -97,4 +97,14 @@ catbar(female_spanish_procs, 'PROCEDURE_DESCRIPTION')
  
 ### 5. Exclusions using `text_search`
   
+The exclusion option in text search can be made as well. Assume we want to find anyone in our Patient Demographics table that **does not** have 'Unknown' as their language. Using the `text_search` with `exclusion=True` we can create a new variable to then plug into `catbar`
+
+```
+language_known_pats = text_search(patient_demographics_df, 'LANGUAGE', 'unknown', exclusion=True)
+catbar(language_known_pats, 'LANGUAGE')
+```
+
+The before and after:
+  
+![Screenshot 2023-03-01 110913](https://user-images.githubusercontent.com/44505663/222240198-9dc2c6dd-be7b-48a5-b0fb-809d4ad4f75f.png)
 
