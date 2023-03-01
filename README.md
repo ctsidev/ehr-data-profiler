@@ -64,6 +64,16 @@ female_spanish_pats
 ![Screenshot 2023-03-01 103701](https://user-images.githubusercontent.com/44505663/222233830-6379fa20-11e8-4486-9411-a702e8a270b9.png)
 
 
+### 3. Using this new 'Female spanish patient' cohort to filter other tables
 
+We can use the `return_type` option in `text_search` to get the unique ids of the cohort by setting the `return_type='ids'`
+
+```
+female_pats = text_search(patient_demographics_df, 'SEX', 'female')
+female_spanish_pat_ids = text_search(female_pats, 'LANGUAGE', 'spanish', return_type='ids')
+female_spanish_pat_ids
+```
+  
+![Screenshot 2023-03-01 104409](https://user-images.githubusercontent.com/44505663/222235218-b6fe4274-29e3-4742-8fea-e4ca5c7b7f6f.png)
 
 
