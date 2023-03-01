@@ -31,7 +31,7 @@ The notebook’s main library, ‘ehr_dp_lib.py’, is made up of a set of funct
 
 <hr />
 
-## TEXT_SEARCH by Example
+## TEXT_SEARCH by example
 
 Another useful function included is `text_search`. It is useful way to search specific columns in dataframes for text and return only those rows that contain the text. The `text_search` function is also used in conjunction with the `filter_by_ids` function to return data regarding a cross-section of the original data cohort.
   
