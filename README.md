@@ -39,7 +39,14 @@ Here are some practical examples:
 
 1. Getting the 'Female' patients from the Patient Demographics dataframe:
   
-  ![1](https://user-images.githubusercontent.com/44505663/222225255-30db6eb0-5e08-4d84-9e3f-a07817b23da1.png)
+![1](https://user-images.githubusercontent.com/44505663/222225255-30db6eb0-5e08-4d84-9e3f-a07817b23da1.png)
+  
+We can use `text_search` to filter those patients with 'female' in the column 'SEX'. Note, the search is not case sensitive, if you require it to be case sensitive you can set the optional argument `ignore_case=False`
+
+`text_search(patient_demographics_df, 'SEX', 'female')`
+
+or with case sensitivity:
+`text_search(patient_demographics_df, 'SEX', 'Female', ignore_case=False)`
 
 
 
