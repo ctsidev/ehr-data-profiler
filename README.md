@@ -18,7 +18,7 @@ When ready run the python command:
 
 The notebook’s main library, ‘ehr_dp_lib.py’, is made up of a set of functions developed by our team that targets the main descriptive statistics that investigators typically need to begin understanding their data. The code blocks in the notebook are pre-generated to the match the different files and variables contained in your specific data set. The functions are as follows but rather than reviewing these in detail here you can proceed to try examples using your own data:
 
-**- describe_tables(): Returns a dataframe listing all the files in the ‘Data’ folder including row and column counts and descriptions
+- describe_tables(): Returns a dataframe listing all the files in the ‘Data’ folder including row and column counts and descriptions
 - missingness( dataframe name ): Returns a dataframe of the number of null values per column.
 - occurrence_stats( dataframe name, unique id column ): [Generated on each table with a unique id that is not ‘IP_PATIENT_ID’] Returns a dataframe of counts for occurrences per table: Patients with Occurrence, Min, Max, Mean.
 - catbar( dataframe name, column name, graph=(True or False)): [Generated on categorical data type only] Returns a dataframe of counts of all the groups of categories in the specific column in the dataframe. When graph argument set to True returns a bar graph.
