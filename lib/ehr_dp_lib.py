@@ -23,7 +23,48 @@ def describe_tables():
     
     return pd.DataFrame(data)
 
+def occurrence_stats(occur_df, unique_id):
+    pats_w_occur = len(occur_df.groupby(['IP_PATIENT_ID']))
+#     pats_wo_occur = len(pat_df) - len(occur_df.groupby(['IP_PATIENT_ID']))
+    occur_min = occur_df.groupby('IP_PATIENT_ID').count()[unique_id].min()
+    occur_max = occur_df.groupby('IP_PATIENT_ID').count()[unique_id].max()
+    occur_mean = occur_df.groupby('IP_PATIENT_ID').count()[unique_id].mean()
+    data = [{
+        'Patients w/ Occurrence': pats_w_occur,
+        'Occurrence Min': occur_min,
+        'Occurrence Max': occur_max,
+        'Occurrence Mean': occur_mean
+    }]
+    return pd.DataFrame(data)
 
+def table_1(pat_df, t1_groups=['AGE','RACE','ETHNICITY','LANGUAGE','EDUCATION','INCOME']):
+    output = ''
+
+    for grp in t1_groups:
+        if grp not in pat_df.columns:
+            continue
+
+        grp_df = pat_df
+        if grp == 'AGE':
+            grp_df['a_grp'] = ''
+            grp_df.loc[grp_df['AGE'] < 18, 'a_grp'] = '<18'
+            grp_df.loc[(grp_df['AGE'] >= 18) & (grp_df['AGE'] < 25), 'a_grp'] = '18-24'
+            grp_df.loc[(grp_df['AGE'] >= 25) & (grp_df['AGE'] < 35), 'a_grp'] = '25-34'
+            grp_df.loc[(grp_df['AGE'] >= 35) & (grp_df['AGE'] < 45), 'a_grp'] = '35-44'
+            grp_df.loc[(grp_df['AGE'] >= 45) & (grp_df['AGE'] < 55), 'a_grp'] = '45-54'
+            grp_df.loc[(grp_df['AGE'] >= 55) & (grp_df['AGE'] < 65), 'a_grp'] = '55-64'
+            grp_df.loc[(grp_df['AGE'] >= 65), 'a_grp'] = '65+'
+            grp_df.loc[(grp_df['AGE'].isna()), 'a_grp'] = 'Unknown'
+            
+            grp_df = ((grp_df['a_grp'].value_counts() / grp_df['a_grp'].value_counts().sum()) * 100).reset_index()
+        else:
+            grp_df = ((grp_df[grp].value_counts() / grp_df[grp].value_counts().sum()) * 100).reset_index()
+            
+        output += f'\n{grp}\n-----------------\n'
+        for i, row in grp_df.iterrows():
+            output += f'{row[0]} => {round(row[1], 1)}\n'
+                
+    print(output)
 
 def dateline(df, date_col):
     date_series = pd.to_datetime(df[date_col])
@@ -60,11 +101,25 @@ def missingness(df):
     df['PERCENT'] = (df['NULLS'] / total) * 100
     return df
 
-def text_search(df, col, search, ignore_case=True):
+def text_search(df, col, search, ignore_case=True, exclusion=False, return_type='df'):
     if ignore_case:
-        return df[df[col].str.contains(search, flags=re.I) == True]
+        if exclusion:
+            df = df[~df[col].str.contains(search, flags=re.I)]
+        else:
+            df = df[df[col].str.contains(search, flags=re.I)]
     else:
-        return df[df[col].str.contains(search) == True]
+        if exclusion:
+            df = df[~df[col].str.contains(search)]
+        else:
+            df = df[df[col].str.contains(search)]
+    
+    if return_type == 'df':
+        return df
+    elif return_type == 'ids':
+        return df['IP_PATIENT_ID'].unique()
+
+def filter_by_ids(df, ids):
+    return df[df['IP_PATIENT_ID'].isin(ids)]
 
 def flow_stats(df):
     df_list = []

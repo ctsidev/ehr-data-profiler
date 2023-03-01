@@ -3,6 +3,7 @@
         "element": "PATIENT_DEMOGRAPHICS",
         "description": "This table holds demographic information for the patients in the cohort. There is only one row per patient",
         "date_field": null,
+        "unique_id": "IP_PATIENT_ID",
         "fields": [
             {
                 "field_name": "VITAL_STATUS",
@@ -88,6 +89,7 @@
         "element": "PATIENT_IDENTIFIERS",
         "description": "This table holds identifying information for the patients in the cohort. There is only one row per patient.",
         "date_field": null,
+        "unique_id": "IP_PATIENT_ID",
         "fields": [
             {
                 "field_name": "HOME_PHONE",
@@ -191,6 +193,7 @@
         "element": "SOCIO-ECONOMICS",
         "description": "This table holds Socio-Economic information for the patients in the cohort. There is only one row per patient",
         "date_field": null,
+        "unique_id": "IP_PATIENT_ID",
         "fields": [
             {
                 "field_name": "ADI_NATRANK",
@@ -264,6 +267,7 @@
         "element": "INSURANCE",
         "description": "This table holds the insurance information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter. ",
         "date_field": null,
+        "unique_id": "IP_PATIENT_ID",
         "fields": [
             {
                 "field_name": "MEM_EFF_TO_DATE",
@@ -307,6 +311,7 @@
         "element": "ENCOUNTERS",
         "description": "This table holds data for encounters for the patient cohort.  There can be multiple rows per patient, but only one row per encounter. ",
         "date_field": "ENCOUNTER_DATE",
+        "unique_id": "IP_ENC_ID",
         "fields": [
             {
                 "field_name": "ENCOUNTER_AGE",
@@ -410,6 +415,7 @@
         "element": "PROVIDERS",
         "description": "This table holds provider information for the providers that treated the patients in the cohort.",
         "date_field": null,
+        "unique_id": "IP_PROVIDER_ID",
         "fields": [
             {
                 "field_name": "IP_PROVIDER_ID",
@@ -459,6 +465,7 @@
         "element": "HOSPITAL_UNIT_TRANSFERS",
         "description": "This table holds within-hospital patient movement event data on admit, discharge, transfer time and location.",
         "date_field": "EVENT_DATETIME_IN",
+        "unique_id": "IP_ENC_ID",
         "fields": [
             {
                 "field_name": "IP_ENC_ID",
@@ -520,6 +527,7 @@
         "element": "ENCOUNTER_DIAGNOSES",
         "description": "This table holds encounter diagnoses data for the patients in the cohort. There can be multiple rows per patient as well as multiple rows per encounter. ",
         "date_field": "DIAGNOSIS_DATE",
+        "unique_id": "IP_ENC_ID",
         "fields": [
             {
                 "field_name": "ICD_DESCRIPTION",
@@ -593,6 +601,7 @@
         "element": "PROCEDURES",
         "description": "This table holds procedure information for the patients in the cohort. There can be multiple rows per patient as well as multiple rows per encounter. ",
         "date_field": "PROCEDURE_DATE",
+        "unique_id": "IP_ENC_ID",
         "fields": [
             {
                 "field_name": "PROCEDURE_DATE",
@@ -636,6 +645,7 @@
         "element": "PROBLEM_LISTS",
         "description": "This table holds problem list info for the patients in the cohort.  There can be multiple rows per patient.",
         "date_field": "NOTED_DATE",
+        "unique_id": "IP_ENC_ID",
         "fields": [
             {
                 "field_name": "DATE_OF_ENTRY",
@@ -739,6 +749,7 @@
         "element": "APPOINTMENTS",
         "description": "This table holds appointment information for the patients in the cohort, which are the non-completed encounters. (Please note: Completed appointments are in the Encounters table.) There can be multiple rows per patient. ",
         "date_field": "APPOINTMENT_DATETIME",
+        "unique_id": "IP_ENC_ID",
         "fields": [
             {
                 "field_name": "APPOINTMENT_MADE_DATETIME",
@@ -830,6 +841,7 @@
         "element": "FLOWSHEET_VITALS",
         "description": "This table holds flowsheet information for vital signs for the patients in the cohort. There can be multiple rows per patient. ",
         "date_field": "VITAL_SIGN_TAKEN_TIME",
+        "unique_id": "IP_ENC_ID",
         "fields": [
             {
                 "field_name": "VITAL_SIGN_TAKEN_TIME",
@@ -867,6 +879,7 @@
         "element": "LABS",
         "description": "This table holds all laboratory result information for the patients in the cohort. There can be multiple rows per patient as well as multiple rows per encounter.",
         "date_field": "ORDER_TIME",
+        "unique_id": "IP_ORDER_PROC_ID",
         "fields": [
             {
                 "field_name": "REFERENCE_LOW",
@@ -970,6 +983,7 @@
         "element": "MEDICATIONS",
         "description": "This table holds medication information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
         "date_field": "ORDER_DATE",
+        "unique_id": "IP_ORDER_MED_ID",
         "fields": [
             {
                 "field_name": "EPIC_MEDICATION_NAME",
@@ -1115,6 +1129,7 @@
         "element": "SOCIAL_HISTORY",
         "description": "This table holds social history information for the patients in the cohort. We included all values for the requested fields and provide only the latest value.",
         "date_field": "CONTACT_DATE",
+        "unique_id": "IP_PATIENT_ID",
         "fields": [
             {
                 "field_name": "CONTACT_DATE",
@@ -1512,6 +1527,7 @@
         "element": "SOCIAL_DETERMINANTS_OF_HEALTH",
         "description": "This table holds social determinants of health information for the patients in the cohort. We included all values for the requested fields.",
         "date_field": null,
+        "unique_id": "IP_PATIENT_ID",
         "fields": [
             {
                 "field_name": "CONTACT_DATE",
@@ -1657,6 +1673,7 @@
         "element": "ALLERGIES",
         "description": "This table holds allergy information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
         "date_field": "DATE_NOTED",
+        "unique_id": "IP_PATIENT_ID",
         "fields": [
             {
                 "field_name": "REACTION",
@@ -1706,6 +1723,7 @@
         "element": "PROVIDER_NOTES",
         "description": "This table holds clinical documents/provider notes data for the patients in the cohort. There can be multiple rows per patient as well as multiple rows per encounter. We pulled data only for the note types selected on the driver list by the study team.",
         "date_field": "CREATE_DATETIME",
+        "unique_id": "IP_NOTE_ID",
         "fields": [
             {
                 "field_name": "CONTACT_DATE",
@@ -1767,6 +1785,7 @@
         "element": "PATHOLOGY",
         "description": "This table holds the pathology information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
         "date_field": "ORDER_TIME",
+        "unique_id": "IP_ORDER_PROC_ID",
         "fields": [
             {
                 "field_name": "ORDER_TIME",
@@ -1840,6 +1859,7 @@
         "element": "PATHOLOGY_RESULTS",
         "description": "This table holds the pathology results for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
         "date_field": null,
+        "unique_id": "IP_ORDER_PROC_ID",
         "fields": [
             {
                 "field_name": "IP_ORDER_PROC_ID",
@@ -1883,6 +1903,7 @@
         "element": "IMAGING",
         "description": "This table holds imaging test data for the patients in the cohort.  There can be multiple rows per patient. ",
         "date_field": "ORDER_TIME",
+        "unique_id": "IP_ORDER_PROC_ID",
         "fields": [
             {
                 "field_name": "ORDER_PROC_ID",
@@ -1956,6 +1977,7 @@
         "element": "IMAGING_IMPRESSIONS",
         "description": "This table holds imaging impressions results for the patients in the cohort.  There can be multiple rows per patient.",
         "date_field": null,
+        "unique_id": "IP_ORDER_PROC_ID",
         "fields": [
             {
                 "field_name": "IP_ORDER_PROC_ID",
@@ -1987,6 +2009,7 @@
         "element": "IMAGING_NARRATIVES",
         "description": "This table holds imaging narrative results for the patients in the cohort.  There can be multiple rows per patient.",
         "date_field": null,
+        "unique_id": "IP_ORDER_PROC_ID",
         "fields": [
             {
                 "field_name": "NARRATIVE",
@@ -2024,6 +2047,7 @@
         "element": "MICROBIOLOGY",
         "description": "This table holds the microbiology information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter.",
         "date_field": "ORDER_TIME",
+        "unique_id": "IP_ORDER_PROC_ID",
         "fields": [
             {
                 "field_name": "SORTING",
@@ -2157,6 +2181,7 @@
         "element": "MICROBIOLOGY_SENSITIVITY_SUSCEPTIBILITY",
         "description": "This table holds the microbiology information for the patients in the cohort.  There can be multiple rows per patient as well as multiple rows per encounter. ",
         "date_field": null,
+        "unique_id": "IP_ORDER_PROC_ID",
         "fields": [
             {
                 "field_name": "SUSCEPTIBILITY",
@@ -2206,6 +2231,7 @@
         "element": "ELIXHAUSER",
         "description": "This table holds patient information of diagnosed illnesses that impact their overall likelihood of death according to the Elixhauser system.",
         "date_field": null,
+        "unique_id": "IP_PATIENT_ID",
         "fields": [
             {
                 "field_name": "ELIX_CHF",
@@ -2423,6 +2449,7 @@
         "element": "CHARLSON",
         "description": "This table holds patient information of diagnosed illnesses that impact their overall likelihood of death according to the Charlson system.",
         "date_field": null,
+        "unique_id": "IP_PATIENT_ID",
         "fields": [
             {
                 "field_name": "CHAR_PARAPLEGIA_HEMIPLEGIA",
