@@ -37,9 +37,9 @@ Another useful function included is `text_search`. It is useful way to search sp
   
 Here are some practical examples:
 
-1. Getting the 'Female' patients from the Patient Demographics dataframe:
+### 1. Getting the 'Female' patients from the Patient Demographics dataframe:
   
-![1](https://user-images.githubusercontent.com/44505663/222225255-30db6eb0-5e08-4d84-9e3f-a07817b23da1.png)
+![Screenshot 2023-03-01 102502](https://user-images.githubusercontent.com/44505663/222229616-7abaa6b8-7394-4e6c-8df0-7824c1dd1702.png)
   
 We can use `text_search` to filter those patients with 'female' in the column 'SEX'. Note, the search is not case sensitive, if you require it to be case sensitive you can set the optional argument `ignore_case=False`
 
