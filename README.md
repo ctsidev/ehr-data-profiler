@@ -84,4 +84,15 @@ You will now have a DataFrame of Procedures just for the cohort of 'Female Spani
   
 ![Screenshot 2023-03-01 105004](https://user-images.githubusercontent.com/44505663/222236594-b37ab5ed-9538-4613-8212-cf62624d30da.png)
 
+### 4. Using new dataset from our filtered cohort to get a summary of the counts of Procedures
+  
+You can now use the result of the `filter_by_ids(procedures_df, female_spanish_pat_ids)` to get a breakdown of the Procedures using another function in the library `catbar`. Feed the result of the filter into a new variable:
+  
+```
+female_spanish_procs = filter_by_ids(procedures_df, female_spanish_pat_ids)
+catbar(female_spanish_procs, 'PROCEDURE_DESCRIPTION') 
+```
+
+![Screenshot 2023-03-01 105953](https://user-images.githubusercontent.com/44505663/222238273-2c05396f-5418-4a89-b08c-696df6715d3a.png)
+ 
 
