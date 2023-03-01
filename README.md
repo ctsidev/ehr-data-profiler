@@ -76,4 +76,12 @@ female_spanish_pat_ids
   
 ![Screenshot 2023-03-01 104409](https://user-images.githubusercontent.com/44505663/222235218-b6fe4274-29e3-4742-8fea-e4ca5c7b7f6f.png)
 
+We can now take this variable `female_spanish_pat_ids` to then plug into the fnction `filter_by_ids` to get the Procedures for that cohort:
+  
+`filter_by_ids(procedures_df, female_spanish_pat_ids)`
+
+You will now have a DataFrame of Procedures just for the cohort of 'Female Spanish speakers':
+  
+![Screenshot 2023-03-01 105004](https://user-images.githubusercontent.com/44505663/222236594-b37ab5ed-9538-4613-8212-cf62624d30da.png)
+
 
