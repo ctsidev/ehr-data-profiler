@@ -37,7 +37,7 @@ Another useful function included is `text_search`. It is useful way to search sp
   
 Here are some practical examples:
 
-### 1. Getting the 'Female' patients from the Patient Demographics dataframe:
+### 1. Getting the 'Female' patients from the Patient Demographics dataframe
   
 ![Screenshot 2023-03-01 102502](https://user-images.githubusercontent.com/44505663/222229616-7abaa6b8-7394-4e6c-8df0-7824c1dd1702.png)
   
@@ -50,6 +50,19 @@ or with case sensitivity:
 `text_search(patient_demographics_df, 'SEX', 'Female', ignore_case=False)`
   
 ![Screenshot 2023-03-01 102337](https://user-images.githubusercontent.com/44505663/222228992-5d10fa03-2889-49c4-8c42-edb187a65f3a.png)
+  
+### 2. Getting the 'Female' patients that are also 'Spanish' speakers
+
+In some cases we need to combine searchs to filter a even more specific group, such as 'Female Spanish speakers'. To do this you will need to use the search twice on 2 lines, saving the first search in a variable that is then used in the next search:
+
+```
+female_pats = text_search(patient_demographics_df, 'SEX', 'female')
+female_spanish_pats = text_search(female_pats, 'LANGUAGE', 'spanish')
+female_spanish_pats
+```
+
+![Screenshot 2023-03-01 103701](https://user-images.githubusercontent.com/44505663/222233830-6379fa20-11e8-4486-9411-a702e8a270b9.png)
+
 
 
 
