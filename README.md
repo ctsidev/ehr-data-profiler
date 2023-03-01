@@ -46,7 +46,11 @@ We can use `text_search` to filter those patients with 'female' in the column 'S
 `text_search(patient_demographics_df, 'SEX', 'female')`
 
 or with case sensitivity:
+
 `text_search(patient_demographics_df, 'SEX', 'Female', ignore_case=False)`
+  
+![Screenshot 2023-03-01 102337](https://user-images.githubusercontent.com/44505663/222228992-5d10fa03-2889-49c4-8c42-edb187a65f3a.png)
+
 
 
 
