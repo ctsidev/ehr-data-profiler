@@ -37,6 +37,9 @@ Another useful function included is `text_search`. It is useful way to search sp
   
 Here are some practical examples:
 
-1. 
+1. Getting the 'Female' patients from the Patient Demographics dataframe:
+  
+  ![1](https://user-images.githubusercontent.com/44505663/222225255-30db6eb0-5e08-4d84-9e3f-a07817b23da1.png)
+
 
 
