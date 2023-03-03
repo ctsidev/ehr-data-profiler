@@ -282,6 +282,12 @@
                 "nb_func": "catbar"
             },
             {
+                "field_name": "COVERAGE_GROUP",
+                "description": "The coverage group associated with the dates effective for this row",
+                "comment_field": null,
+                "nb_func": "catbar"
+            },
+            {
                 "field_name": "FIN_CLASS_NAME",
                 "description": "The name of the financial class for the payor associated with the dates effective for this row",
                 "comment_field": null,
@@ -870,6 +876,44 @@
             {
                 "field_name": "VITAL_SIGN_VALUE",
                 "description": "The measure result (number)",
+                "comment_field": null,
+                "nb_func": null
+            }
+        ]
+    },
+    {
+        "element": "FLOWSHEETS",
+        "description": "This table holds flowsheet information for the patients in the cohort. There can be multiple rows per patient. ",
+        "date_field": "RECORDED_TIME",
+        "unique_id": "IP_ENC_ID",
+        "fields": [
+            {
+                "field_name": "RECORDED_TIME",
+                "description": "The date and time the measure was taken",
+                "comment_field": "Format: MM/DD/YYYY HH24:MI ",
+                "nb_func": null
+            },
+            {
+                "field_name": "FLOWSHEET_MEASURE_TYPE",
+                "description": "Flowsheet measure name",
+                "comment_field": "Per the data elements template, providing data only on the patients\u2019 height, bmi, and weight",
+                "nb_func": "catbar"
+            },
+            {
+                "field_name": "IP_ENC_ID",
+                "description": "A de-identified, unique ID number for the encounter (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from other tables with encounter information e.g. diagnoses, procedures, vital signs, etc.",
+                "nb_func": null
+            },
+            {
+                "field_name": "IP_PATIENT_ID",
+                "description": "A de-identified, unique ID number for the individual patient (assigned by IP for coding purposes)",
+                "comment_field": "Use this variable to link to variables from all other files that contain patient information",
+                "nb_func": null
+            },
+            {
+                "field_name": "FLOWSHEET_MEASURE_VALUE",
+                "description": "The measure result",
                 "comment_field": null,
                 "nb_func": null
             }
